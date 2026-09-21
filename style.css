@@ -595,40 +595,65 @@ body {
         font-size: 14px;
     }
 }
-/* Ajuste para celulares */
-@media (max-width: 600px) {
+/* =========================
+   CENTRADO PERFECTO EN CELULAR
+   ========================= */
 
-    body {
+@media screen and (max-width: 600px) {
+
+    html, body {
         width: 100%;
+        min-width: 100%;
         margin: 0;
         padding: 0;
         overflow-x: hidden;
     }
 
-    .contenedor {
-        width: 100%;
-        min-height: 100vh;
+    body {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
-        box-sizing: border-box;
     }
 
+    /* TÍTULO */
     h1 {
-        text-align: center;
-    }
-
-    audio {
-        width: 85%;
-        margin: 20px auto;
-    }
-
-    .flores {
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        margin-left: 0;
-        margin-right: 0;
+        text-align: center !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    /* REPRODUCTOR */
+    audio {
+        display: block !important;
+        width: 85% !important;
+        max-width: 500px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* CONTENEDORES DE FLORES */
+    .flores,
+    .flower-container,
+    .flowers,
+    .jardín,
+    .jardin {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    /* GRUPO DE FLORES */
+    .flores > *,
+    .flower-container > *,
+    .flowers > * {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
