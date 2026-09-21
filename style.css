@@ -1,0 +1,597 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at center, #263d78 0%, #11152e 55%, #080914 100%);
+
+    font-family: Georgia, serif;
+    color: #ffd83d;
+
+    position: relative;
+}
+
+
+/* =========================
+   ESTRELLAS
+========================= */
+
+.estrellas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+
+    background-image:
+        radial-gradient(circle, white 1px, transparent 2px),
+        radial-gradient(circle, #ffd83d 1px, transparent 2px),
+        radial-gradient(circle, white 1px, transparent 2px);
+
+    background-size:
+        130px 130px,
+        190px 190px,
+        240px 240px;
+
+    background-position:
+        20px 30px,
+        80px 100px,
+        150px 50px;
+
+    animation: estrellas 5s ease-in-out infinite alternate;
+}
+
+@keyframes estrellas {
+    from {
+        opacity: .45;
+    }
+
+    to {
+        opacity: .9;
+    }
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+.encabezado {
+    position: relative;
+    z-index: 10;
+
+    text-align: center;
+
+    margin-top: 35px;
+}
+
+.encabezado h1 {
+    font-size: clamp(55px, 8vw, 90px);
+
+    color: #ffd83d;
+
+    text-shadow:
+        0 0 5px #fff000,
+        0 0 15px #ffd000,
+        0 0 30px #ffb300,
+        0 0 50px #ff9900;
+
+    animation: brillo 2s infinite alternate;
+}
+
+.encabezado h2 {
+    margin-top: -8px;
+
+    font-size: clamp(38px, 6vw, 65px);
+
+    color: #ffd83d;
+
+    text-shadow:
+        0 0 5px #fff000,
+        0 0 15px #ffd000,
+        0 0 30px #ffae00;
+}
+
+@keyframes brillo {
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(1.3);
+    }
+}
+
+
+/* =========================
+   REPRODUCTOR
+========================= */
+
+.musica {
+    position: relative;
+    z-index: 20;
+
+    width: min(600px, 80%);
+
+    margin: 20px auto 0;
+
+    padding: 14px 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    border: 2px solid #dcae24;
+
+    border-radius: 25px;
+
+    background: rgba(20, 18, 24, .88);
+
+    box-shadow:
+        0 0 10px #ffd000,
+        0 0 25px rgba(255, 193, 7, .35);
+}
+
+#botonMusica {
+    width: 58px;
+    height: 58px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #ffd000;
+
+    color: #332300;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px #ffd000,
+        0 0 25px #ffb300;
+
+    transition: .2s;
+}
+
+#botonMusica:hover {
+    transform: scale(1.08);
+}
+
+.infoMusica {
+    flex: 1;
+}
+
+.tituloMusica {
+    color: #ffe680;
+
+    font-size: 19px;
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+.barra {
+    width: 100%;
+    height: 6px;
+
+    background: #555;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+#progreso {
+    width: 0%;
+    height: 100%;
+
+    background: #ffd000;
+}
+
+.tiempo {
+    display: flex;
+    justify-content: space-between;
+
+    color: #ddd;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================
+   JARDÍN
+========================= */
+
+.jardin {
+    position: absolute;
+
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(-50%);
+
+    width: min(850px, 95vw);
+    height: 48vh;
+
+    z-index: 5;
+}
+
+
+/* =========================
+   FLORES
+========================= */
+
+.flor {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 150px;
+    height: 360px;
+
+    transform-origin: bottom center;
+
+    animation: crecer 2.8s cubic-bezier(.2,.8,.2,1) forwards;
+
+    opacity: 0;
+}
+
+
+/* posiciones */
+
+.flor1 {
+    left: 5%;
+    height: 280px;
+    animation-delay: .2s;
+}
+
+.flor2 {
+    left: 18%;
+    height: 340px;
+    animation-delay: .5s;
+}
+
+.flor3 {
+    left: 32%;
+    height: 390px;
+    animation-delay: .8s;
+}
+
+.flor4 {
+    left: 45%;
+    height: 350px;
+    animation-delay: 1.1s;
+}
+
+.flor5 {
+    left: 58%;
+    height: 390px;
+    animation-delay: 1.4s;
+}
+
+.flor6 {
+    left: 72%;
+    height: 330px;
+    animation-delay: 1.7s;
+}
+
+.flor7 {
+    left: 83%;
+    height: 270px;
+    animation-delay: 2s;
+}
+
+
+@keyframes crecer {
+
+    0% {
+        transform: translateY(180px) scale(.1);
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   TALLO
+========================= */
+
+.flor::before {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    width: 9px;
+    height: 78%;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            to right,
+            #176b25,
+            #58b83d,
+            #1c7628
+        );
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 8px rgba(70, 200, 60, .5);
+}
+
+
+/* =========================
+   HOJAS
+========================= */
+
+.flor::after {
+    content: "";
+
+    position: absolute;
+
+    width: 55px;
+    height: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4fae38,
+            #146b25
+        );
+
+    border-radius: 100% 0 100% 0;
+
+    left: 15px;
+    bottom: 32%;
+
+    transform: rotate(-30deg);
+
+    box-shadow:
+        55px 55px 0 -2px #318c2e,
+        15px 105px 0 -3px #3fa536;
+}
+
+
+/* =========================
+   CABEZA DEL GIRASOL
+========================= */
+
+.flor {
+    --tamano: 125px;
+}
+
+.flor > .petalo {
+    position: absolute;
+}
+
+
+/* cabeza */
+
+.flor {
+    background: none;
+}
+
+
+/* =========================
+   PÉTALOS
+========================= */
+
+.flor {
+    isolation: isolate;
+}
+
+
+/* usamos pseudo-elementos adicionales
+   mediante fondos múltiples */
+
+.flor {
+    --petalos:
+        radial-gradient(
+            ellipse 28px 60px at 50% 50%,
+            #ffe900 45%,
+            #ffb800 70%,
+            transparent 72%
+        );
+}
+
+
+/* =========================
+   CREACIÓN DE PÉTALOS CON JS
+========================= */
+
+.petalo {
+    position: absolute;
+
+    left: 50%;
+    top: 7%;
+
+    width: 30px;
+    height: 65px;
+
+    transform-origin: 50% 100%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #fff23a,
+            #ffd000 55%,
+            #f39a00
+        );
+
+    border-radius:
+        50% 50%
+        45% 45%;
+
+    box-shadow:
+        0 0 8px #ffcc00;
+
+    z-index: 2;
+}
+
+
+/* centro café */
+
+.centro {
+    position: absolute;
+
+    left: 50%;
+    top: 7%;
+
+    width: 55px;
+    height: 55px;
+
+    transform: translate(-50%, 65%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #8b5426,
+            #4b2817 55%,
+            #24140d 100%
+        );
+
+    border: 5px solid #8b5a25;
+
+    box-shadow:
+        0 0 10px rgba(255, 200, 0, .7);
+
+    z-index: 4;
+}
+
+
+/* semillas del centro */
+
+.centro::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 8px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #1e120c 1px,
+            transparent 2px
+        );
+
+    background-size: 7px 7px;
+
+    opacity: .8;
+}
+
+
+/* =========================
+   MENSAJE
+========================= */
+
+.mensaje {
+    position: absolute;
+
+    bottom: 10px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 30;
+
+    color: #ffe98a;
+
+    font-size: 17px;
+
+    text-shadow:
+        0 0 8px #ffd000;
+
+    white-space: nowrap;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .encabezado {
+        margin-top: 20px;
+    }
+
+    .musica {
+        width: 90%;
+        padding: 10px 14px;
+    }
+
+    .tituloMusica {
+        font-size: 15px;
+    }
+
+    #botonMusica {
+        width: 48px;
+        height: 48px;
+    }
+
+    .jardin {
+        height: 53vh;
+        width: 100%;
+    }
+
+    .flor {
+        transform-origin: bottom center;
+        scale: .65;
+    }
+
+    .flor1 {
+        left: 14%;
+    }
+
+    .flor2 {
+        left: 20%;
+    }
+
+    .flor3 {
+        left: 35%;
+    }
+
+    .flor4 {
+        left: 50%;
+    }
+
+    .flor5 {
+        left: 65%;
+    }
+
+    .flor6 {
+        left: 80%;
+    }
+
+    .flor7 {
+        left: 93%;
+    }
+
+    .mensaje {
+        font-size: 14px;
+    }
+}
